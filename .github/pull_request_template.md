@@ -4,7 +4,7 @@ Please include a summary of the change and which issue is fixed. Please also inc
 ## Type of change
 
 - [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
+- [x] New feature (non-breaking change which adds functionality)
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 - [ ] This change requires a documentation update
 
@@ -14,8 +14,7 @@ Please describe the tests that you ran to verify your changes. Provide instructi
 - [ ] Unit test
 
 # Checklist:
-- [ ] I have pulled code from master and re-tested changes before opening the PR
-- [ ] I have submitted the code changes to Quality Check tools such as SonarQube
-- [ ] No new bugs or vulnerabilities have been found in the code
-- [ ] New and existing unit tests pass locally with my changes
-- [ ] Any dependent changes have been merged and published in downstream modules
+- [x] I have pulled code from main and re-tested changes before opening the PR
+- [x] No new bugs or vulnerabilities have been found in the code
+- [x] New and existing unit tests pass locally with my changes
+- [x] Any dependent changes have been merged and published in downstream modules
