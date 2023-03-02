@@ -1,3 +1,8 @@
 {
-  
+  "endpoints": {
+    "tests": "/assets/mock/api/tests.json"
+  },
+  "grade-levels": [
+    { "key": "3rd-grade", "title": "3rd Grade" }
+  ]
 }
