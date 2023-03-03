@@ -28,7 +28,12 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "images",
+                "output": "/images/"
+              }
             ],
             "styles": [
               "src/styles.scss"
@@ -96,7 +101,12 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "images",
+                "output": "/images/"
+              }
             ],
             "styles": [
               "src/styles.scss"
