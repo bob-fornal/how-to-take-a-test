@@ -9,9 +9,19 @@ import { HeaderComponent } from './features/header/header.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent],
-  imports: [BrowserModule, AppRoutingModule, MatSlideToggleModule],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    HeaderComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatSlideToggleModule
+  ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [
+    AppComponent
+  ],
 })
 export class AppModule {}
