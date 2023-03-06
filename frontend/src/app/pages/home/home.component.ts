@@ -18,5 +18,5 @@ export class HomeComponent implements OnInit {
 
   handler = (data: any) => {
     console.log(data);
-  }
+  };
 }
