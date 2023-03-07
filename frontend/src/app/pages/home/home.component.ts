@@ -13,8 +13,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.api.getTest();
+    this.init();
   }
+
+  init = (): void => {
+    this.api.getTest();
+  };
 
   handler = (data: any) => {
     console.log(data);
