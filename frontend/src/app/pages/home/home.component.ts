@@ -7,6 +7,8 @@ import { ApiHandlerService } from '../../core/services/api-handler.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  originalData: any = {};
+  data: Array<any> = [];
 
   constructor(private api: ApiHandlerService) {
     api.test.subscribe(this.handler.bind(this));
@@ -21,6 +23,11 @@ export class HomeComponent implements OnInit {
   };
 
   handler = (data: any) => {
-    console.log(data);
+    this.originalData = data;
+    this.data = Object.keys(data);
+  };
+
+  triggerDetails = (key: string): void => {
+    console.log(this.originalData[key][0]);
   };
 }

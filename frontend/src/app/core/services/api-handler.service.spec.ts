@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { ApiHandlerService } from './api-handler.service';
-import { of } from 'rxjs';
+import { from, of } from 'rxjs';
 
 describe('ApiHandlerService', () => {
   let service: ApiHandlerService;
@@ -36,5 +36,11 @@ describe('ApiHandlerService', () => {
     expect(service.test.next).toHaveBeenCalledWith('DATA');
   });
 
-  // TODO: Write the Failing Unit Tests
+  it('expect "getTest" to handle error', async () => {
+    spyOn(service, 'getUrl').and.returnValue('URL');
+    spyOn(service['http'], 'get').and.returnValue(from(Promise.reject('ERROR CODE')));
+
+    await service.getTest();
+    expect(console.log).toHaveBeenCalledWith('ERROR CODE');
+  });
 });
