@@ -1,7 +1,9 @@
 <div class="level-wrapper">
   <ng-container *ngFor="let level of levels">
     <button
+    class="grade-level-button"
       mat-raised-button
+      [class.selected]="level.key === selected"
       color="primary">{{level.title}}</button>
   </ng-container>
 </div>

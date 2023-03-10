@@ -14,9 +14,10 @@ import { GradeLevelSelectionComponent } from './features/grade-level-selection/g
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    HeaderComponent,
+
     GradeLevelSelectionComponent,
+    HeaderComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,8 +25,6 @@ import { GradeLevelSelectionComponent } from './features/grade-level-selection/g
 
     MatButtonModule,
     MatSlideToggleModule,
-    
-    GradeLevelSelectionComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

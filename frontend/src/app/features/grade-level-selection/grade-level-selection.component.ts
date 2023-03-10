@@ -1,12 +1,18 @@
 import { Component } from '@angular/core';
 
 import config from '../../core/constants/config.json';
+import { GradeDetail } from 'src/app/core/interfaces/grade-detail.interface';
 
 @Component({
-  selector: 'app-grade-level-selection',
+  selector: 'grade-level-selection',
   templateUrl: './grade-level-selection.component.html',
   styleUrls: ['./grade-level-selection.component.scss']
 })
 export class GradeLevelSelectionComponent {
-  levels: Array<any> = config['grade-levels'];
+  levels: Array<GradeDetail> = config['grade-levels'];
+  selected: string = '';
+
+  selectGradeLevel = (key: string): void => {
+    this.selected = key;
+  };
 }
