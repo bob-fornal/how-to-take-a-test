@@ -4,6 +4,8 @@
     class="grade-level-button"
       mat-raised-button
       [class.selected]="level.key === selected"
-      color="primary">{{level.title}}</button>
+      color="primary"
+      (click)="selectGradeLevel(level.key)">{{level.title}}</button>
+      
   </ng-container>
 </div>

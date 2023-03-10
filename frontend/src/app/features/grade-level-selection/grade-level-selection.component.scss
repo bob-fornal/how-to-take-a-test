@@ -1,12 +1,10 @@
-//testing for selection color change. Not final.
-.grade-level-button.selected {
-    background-color: #ff6666;
-    border-color: #ff6666;
-    color: #fff;
-  }
-
 .grade-level-button:not(:first-of-type){
     margin-left: 0.25em;
-}
-
-
+    }
+    
+    
+button.grade-level-button.selected {
+    background-color: green;
+    border: 1px solid #f5f5f5;
+    color: #000;
+    }

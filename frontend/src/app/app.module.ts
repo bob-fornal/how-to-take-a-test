@@ -7,7 +7,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './features/header/header.component';
 
 import { MatButtonModule } from '@angular/material/button';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { GradeLevelSelectionComponent } from './features/grade-level-selection/grade-level-selection.component';
 
@@ -24,7 +23,6 @@ import { GradeLevelSelectionComponent } from './features/grade-level-selection/g
     AppRoutingModule,
 
     MatButtonModule,
-    MatSlideToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
