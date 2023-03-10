@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './features/header/header.component';
 
+import { MatButtonModule } from '@angular/material/button'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AssistanceSelectionComponent } from './features/assistance-selection/assistance-selection.component';
 
@@ -23,6 +24,7 @@ import { AssistanceSelectionComponent } from './features/assistance-selection/as
     BrowserModule,
     HttpClientModule,
     
+    MatButtonModule,
     MatSlideToggleModule,
   ],
   providers: [],
