@@ -8,11 +8,17 @@ import { AssistanceLevel } from '../../core/interfaces/assistance-level';
   styleUrls: ['./assistance-selection.component.scss']
 })
 export class AssistanceSelectionComponent {
-  data: AssistanceLevel[] = config['assistance-levels']
+  levels: AssistanceLevel[] = config['assistance-levels']
   selectedLevel: string = ''
 
-  handleSelectLevel= (level: any) : void => {
+  handleSelectLevel= (level: AssistanceLevel) : void => {
     this.selectedLevel = level.key
-    console.log(this.selectedLevel)
+  }
+
+  isSelected = (level: AssistanceLevel) : boolean => {
+    if(level.key === this.selectedLevel){
+      return true;
+    }
+    return false;
   }
 }
