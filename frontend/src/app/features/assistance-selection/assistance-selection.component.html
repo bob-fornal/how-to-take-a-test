@@ -1,12 +1,6 @@
-<p>assistance-selection works!</p>
-
+<h3>Select Your Desired Assistance Level on the Test:</h3>
 <div>
-  <ng-container >
-    <ul>
-      <li *ngFor="let item of data">
-        <button mat-raised-button color="primary">{{item.title}}</button>
-      </li>
-      
-    </ul>
+  <ng-container *ngFor="let item of data">
+    <button mat-raised-button color="primary">{{item.title}}</button>
   </ng-container>
 </div>
