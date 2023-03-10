@@ -4,5 +4,10 @@
   },
   "grade-levels": [
     { "key": "3rd-grade", "title": "3rd Grade" }
+  ],
+  "assistance-levels": [
+    {"key": "low", "title": "Low"},
+    {"key": "medium", "title": "Medium"},
+    {"key": "high", "title": "High"}
   ]
 }

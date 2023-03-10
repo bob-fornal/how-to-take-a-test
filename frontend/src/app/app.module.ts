@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './features/header/header.component';
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { AssistanceSelectionComponent } from './features/assistance-selection/assistance-selection.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
     HomeComponent,
     HeaderComponent,
+    AssistanceSelectionComponent,
   ],
   imports: [
     AppRoutingModule,
