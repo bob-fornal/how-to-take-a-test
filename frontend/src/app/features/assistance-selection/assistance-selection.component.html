@@ -1,6 +1,6 @@
 <h3>Select Your Desired Assistance Level on the Test:</h3>
 <div>
   <ng-container *ngFor="let item of data">
-    <button mat-raised-button color="primary">{{item.title}}</button>
+    <button mat-raised-button color="primary" (click)="handleSelectLevel(item)">{{item.title}}</button>
   </ng-container>
 </div>
