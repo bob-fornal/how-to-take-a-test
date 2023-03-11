@@ -20,11 +20,11 @@ import { GradeLevelSelectionComponent } from './features/grade-level-selection/g
     HomeComponent,
   ],
   imports: [
+    BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
 
     MatButtonModule,
-    BrowserModule,
-    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

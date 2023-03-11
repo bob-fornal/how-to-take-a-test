@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GradeLevelSelectionComponent } from './grade-level-selection.component';
-import config from '../../core/constants/config.json'; //did something break here?
 
 describe('GradeLevelSelectionComponent', () => {
   let component: GradeLevelSelectionComponent;
@@ -23,9 +22,17 @@ describe('GradeLevelSelectionComponent', () => {
   });
 
   it('should select the button when clicked', () => {
-    const button = fixture.nativeElement.querySelector('button');
+    const button = fixture.nativeElement.querySelector('#id-3rd-grade');
+
     button.click();
     fixture.detectChanges();
     expect(button.classList).toContain('selected');
+  });
+
+  it('expects "selectGradeLevel" to set the selected key', () => {
+    const key: string = 'KEY';
+
+    component.selectGradeLevel(key);
+    expect(component.selected).toEqual(key);
   });
 });
