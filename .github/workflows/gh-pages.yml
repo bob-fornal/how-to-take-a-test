@@ -44,5 +44,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: frontend/dist/httat
-        enable_jekyll: true
+        publish_dir: ./frontend/dist/httat
