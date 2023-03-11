@@ -1,0 +1,125 @@
+{
+  "root": true,
+  "ignorePatterns": ["projects/**/*"],
+  "globals": {
+    "console": "readonly",
+    "setTimeout": "readonly",
+    "window": "readonly"
+  },
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "env": {
+        "jasmine": true
+      },
+      "parserOptions": {
+        "project": ["tsconfig.json", "e2e/tsconfig.json"],
+        "createDefaultProgram": true,
+        "ecmaVersion": 2020
+      },
+      "plugins": ["import", "sonarjs"],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:prettier/recommended",
+        "plugin:sonarjs/recommended"
+      ],
+      "rules": {
+        // Errors
+        "prefer-arrow-callback": "error",
+        "prefer-template": "error",
+        "no-else-return": "error",
+        "no-warning-comments": ["error"],
+        "sort-imports": [
+          "error",
+          {
+            "ignoreCase": false,
+            "ignoreDeclarationSort": true,
+            "ignoreMemberSort": false,
+            "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
+            "allowSeparatedGroups": true
+          }
+        ],
+        "import/order": [
+          "error",
+          {
+            "alphabetize": {
+              "caseInsensitive": true,
+              "order": "asc"
+            },
+            "groups": ["external", "builtin", "parent", ["sibling", "index"]],
+            "newlines-between": "always",
+            "pathGroups": [
+              {
+                "group": "external",
+                "pattern": "@angular",
+                "position": "before"
+              },
+              {
+                "group": "external",
+                "pattern": "@core/**",
+                "position": "after"
+              },
+              {
+                "group": "external",
+                "pattern": "@shared/**",
+                "position": "after"
+              },
+              {
+                "group": "external",
+                "pattern": "@pages/**",
+                "position": "after"
+              },
+              {
+                "group": "external",
+                "pattern": "@features/**",
+                "position": "after"
+              }
+            ],
+            "pathGroupsExcludedImportTypes": ["builtin"]
+          }
+        ],
+        "@typescript-eslint/no-require-imports": "error",
+        "@typescript-eslint/no-duplicate-imports": "error",
+        "@typescript-eslint/no-restricted-imports": ["error", { "paths": ["rxjs/Rx"] }],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "cah",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "cah",
+            "style": "kebab-case"
+          }
+        ],
+        // Warnings
+        "sonarjs/prefer-single-boolean-return": "warn",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@angular-eslint/no-output-native": "warn",
+        "@angular-eslint/no-input-rename": "warn",
+        // Disabled Rules
+        "no-unused-vars": "off",
+        "no-prototype-builtins": "off",
+        "sonarjs/no-duplicate-string": "off",
+        "@angular-eslint/no-output-on-prefix": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-inferrable-types": "off",
+        "@typescript-eslint/no-unused-vars": "off"
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended", "plugin:prettier/recommended"],
+      "rules": {}
+    }
+  ]
+}
