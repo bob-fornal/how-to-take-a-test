@@ -15,10 +15,10 @@ export class AssistanceSelectionComponent {
     this.selectedLevel = level.key
   }
 
-  isSelected = (level: AssistanceLevel) : boolean => {
-    if(level.key === this.selectedLevel){
-      return true;
-    }
-    return false;
-  }
+  // isSelected = (level: AssistanceLevel) : boolean => {
+  //   if(level.key === this.selectedLevel){
+  //     return true;
+  //   }
+  //   return false;
+  // }
 }
