@@ -7,25 +7,26 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './features/header/header.component';
 
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatButtonModule } from '@angular/material/button';
+
+import { GradeLevelSelectionComponent } from './features/grade-level-selection/grade-level-selection.component';
 
 @NgModule({
   declarations: [
     AppComponent,
 
-    HomeComponent,
+    GradeLevelSelectionComponent,
     HeaderComponent,
+    HomeComponent,
   ],
   imports: [
-    AppRoutingModule,
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
-    
-    MatSlideToggleModule,
+
+    MatButtonModule,
   ],
   providers: [],
-  bootstrap: [
-    AppComponent
-  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
