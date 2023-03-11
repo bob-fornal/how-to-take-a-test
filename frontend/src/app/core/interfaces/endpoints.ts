@@ -1,3 +1,5 @@
 export interface Endpoints {
-  [name: string]: string;
+  [name: string]: {
+    [name: string]: string;
+  };
 }
