@@ -9,27 +9,27 @@ import { HeaderComponent } from './features/header/header.component';
 
 import { MatButtonModule } from '@angular/material/button'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 import { AssistanceSelectionComponent } from './features/assistance-selection/assistance-selection.component';
+import { GradeLevelSelectionComponent } from './features/grade-level-selection/grade-level-selection.component';
 
 @NgModule({
   declarations: [
     AppComponent,
 
-    HomeComponent,
-    HeaderComponent,
     AssistanceSelectionComponent,
+    GradeLevelSelectionComponent,
+    HeaderComponent,
+    HomeComponent,
   ],
   imports: [
-    AppRoutingModule,
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
-    
+
     MatButtonModule,
-    MatSlideToggleModule,
   ],
   providers: [],
-  bootstrap: [
-    AppComponent
-  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
