@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-
+import { AssistanceSelectionComponent } from 'src/app/features/assistance-selection/assistance-selection.component';
 import { HomeComponent } from './home.component';
 
 import { MockGradeLevelSelectionComponent } from 'src/app/shared/_spec-tools/components/mock-grade-level-selection-component.spec';
@@ -14,7 +14,6 @@ describe('HomeComponent', () => {
       imports: [HttpClientTestingModule],
       declarations: [
         HomeComponent,
-        
         MockGradeLevelSelectionComponent
       ]
     })
