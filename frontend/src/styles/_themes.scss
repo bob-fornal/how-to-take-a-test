@@ -1,0 +1,12 @@
+@import 'color-palettes';
+
+// Define the theme
+$httat-theme: (
+  primary: mat-palette($mat-palette-primary),
+  accent: mat-palette($mat-palette-accent),
+  warn: mat-palette($mat-palette-warning),
+  secondary: mat-palette($mat-palette-secondary),
+);
+
+// Register the theme with Angular Material
+@include angular-material-theme($httat-theme);
