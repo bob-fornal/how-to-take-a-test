@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import config from "../../core/constants/config.json"
 import { AssistanceLevel } from '../../core/interfaces/assistance-level';
 

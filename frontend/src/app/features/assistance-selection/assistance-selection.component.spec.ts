@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AssistanceLevel } from 'src/app/core/interfaces/assistance-level';
 import { AssistanceSelectionComponent } from './assistance-selection.component';
 
 describe('AssistanceSelectionComponent', () => {
