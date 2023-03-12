@@ -11,7 +11,7 @@ export class AssistanceSelectionComponent {
   levels: AssistanceLevel[] = config['assistance-levels'];
   selected: string = '';
 
-  handleSelectLevel= (level: string) : void => {
-    this.selected = level;
+  selectGradeLevel= (key: string) : void => {
+    this.selected = key;
   }
 }

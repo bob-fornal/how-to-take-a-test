@@ -28,7 +28,7 @@ describe('AssistanceSelectionComponent', () => {
   it('handleSelectLevel should change the selected level', () => {
     const key: string = "TEST"
 
-    component.handleSelectLevel(key)
+    component.selectGradeLevel(key)
     expect(component.selected).toEqual(key)
   })
 

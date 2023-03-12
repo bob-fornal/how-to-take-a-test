@@ -4,7 +4,7 @@
     class="assistance-level-button"
      [id]="'id-' + level.key"
      [class.selected]="level.key === selected"
-     (click)="handleSelectLevel(level.key)"
+     (click)="selectGradeLevel(level.key)"
     >{{level.title}}</button>
   </ng-container>
 </div>
