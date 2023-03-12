@@ -1,6 +1,11 @@
 {
   "endpoints": {
-    "tests": "/assets/mock/api/tests.json"
+    "localhost": {
+      "tests": "/assets/mock/api/tests.json"
+    },
+    "gh-pages": {
+      "tests": "/how-to-take-a-test/assets/mock/api/tests.json"
+    }
   },
   "grade-levels": [
     {

@@ -18,11 +18,21 @@ describe('ApiHandlerService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('expects "getUrl" to return the correct URL', () => {
+  it('expects "getUrl" to return the correct URL for github.io', () => {
     const key: string = 'TEST';
-    service.endpoints[key] = 'TEST-URL';
+    service.endpoints['gh-pages'][key] = 'TEST-URL';
+    const _win: any = { location: { host: 'bob.github.io'} };
 
-    const result: string = service.getUrl(key);
+    const result: string = service.getUrl(key, _win);
+    expect(result).toEqual('TEST-URL');
+  });
+
+  it('expects "getUrl" to return the correct URL for localhost', () => {
+    const key: string = 'TEST';
+    service.endpoints['localhost'][key] = 'TEST-URL';
+    const _win: any = { location: { host: 'localhost'} };
+
+    const result: string = service.getUrl(key, _win);
     expect(result).toEqual('TEST-URL');
   });
 

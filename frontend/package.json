@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "build:deploy": "ng build --base-href /how-to-take-a-test/",
     "test": "ng test"
   },
   "private": true,

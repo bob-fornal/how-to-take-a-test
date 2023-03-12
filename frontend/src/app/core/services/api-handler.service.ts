@@ -15,11 +15,14 @@ export class ApiHandlerService {
 
   constructor(private http: HttpClient) { }
   
-  getUrl = (key: string): string => this.endpoints[key];
+  getUrl = (key: string, _window: any): string => {
+    if (_window.location.host.includes('github.io')) return this.endpoints['gh-pages'][key];
+    return this.endpoints['localhost'][key];
+  }
   
   getTest = async (): Promise<void> => {
     const key: string = "tests";
-    const url: string = this.getUrl(key);
+    const url: string = this.getUrl(key, window);
 
     try {
       const data: any = await firstValueFrom(this.http.get(url));
