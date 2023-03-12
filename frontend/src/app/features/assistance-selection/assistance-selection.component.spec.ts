@@ -21,14 +21,14 @@ describe('AssistanceSelectionComponent', () => {
   });
 
   it('should have no level selected at first', () => {
-    expect(component.selected).toEqual('')
+    expect(component.selected).toEqual('');
   })
 
   it('handleSelectLevel should change the selected level', () => {
-    const key: string = "TEST"
+    const key: string = "TEST";
 
-    component.selectGradeLevel(key)
-    expect(component.selected).toEqual(key)
+    component.selectGradeLevel(key);
+    expect(component.selected).toEqual(key);
   })
 
   it('should give buttons a "selected" class when clicked', () => {
