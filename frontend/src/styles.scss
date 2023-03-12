@@ -3,3 +3,46 @@ html{
   background: #111;
   color: #ccc;
 }
+
+@import '../node_modules/@angular/material/theming';
+@include mat-core();
+
+// Define primary color
+$primary: mat-palette($mat-indigo);
+
+// Define accent color
+$accent: mat-palette($mat-pink, A200, A100, A400);
+
+$lighter-accent: mat-color($accent, lighter);
+
+// Define warning color
+$warn: mat-palette($mat-deep-orange);
+
+// Define background color
+$background: mat-palette($mat-grey, 200);
+
+// Define foreground color
+$foreground: mat-palette($mat-grey, 50);
+
+// Define light and dark colors
+$light: mat-color($primary, lighten-5);
+$dark: mat-color($primary, darken-5);
+
+// Define text color
+$text: mat-color($foreground, text);
+
+
+$theme: mat-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    background: $background,
+    foreground: $foreground,
+    light: $light,
+    dark: $dark,
+    text: $text
+  )
+));
+
+@include angular-material-theme($theme);
