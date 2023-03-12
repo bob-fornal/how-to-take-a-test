@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { GradeLevelSelectionComponent } from './features/grade-level-selection/grade-level-selection.component';
+import { MockHomeComponent } from './shared/_spec-tools/components/mock-home-component.spec';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -11,7 +11,7 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent,
-        GradeLevelSelectionComponent
+        MockHomeComponent
       ],
     }).compileComponents();
   });
