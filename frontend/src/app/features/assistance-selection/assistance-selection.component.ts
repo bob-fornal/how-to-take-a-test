@@ -9,16 +9,9 @@ import { AssistanceLevel } from '../../core/interfaces/assistance-level';
 })
 export class AssistanceSelectionComponent {
   levels: AssistanceLevel[] = config['assistance-levels']
-  selectedLevel: string = ''
+  selected: string = ''
 
-  handleSelectLevel= (level: AssistanceLevel) : void => {
-    this.selectedLevel = level.key
+  handleSelectLevel= (level: string) : void => {
+    this.selected = level
   }
-
-  // isSelected = (level: AssistanceLevel) : boolean => {
-  //   if(level.key === this.selectedLevel){
-  //     return true;
-  //   }
-  //   return false;
-  // }
 }

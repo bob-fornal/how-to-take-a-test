@@ -2,9 +2,9 @@
 <div>
   <ng-container *ngFor="let level of levels">
     <button mat-raised-button color="primary"
-     (click)="handleSelectLevel(level)"
      [id]="'id-' + level.key"
-     [ngClass]="{selected: level.key === selectedLevel}"
-     >{{level.title}}</button>
+     [class.selected]="{ level.key === selected }"
+     (click)="handleSelectLevel(level.key)"
+    >{{level.title}}</button>
   </ng-container>
 </div>

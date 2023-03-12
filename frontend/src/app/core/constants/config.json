@@ -41,8 +41,8 @@
     }
   ],
   "assistance-levels": [
-    {"key": "low", "title": "Low"},
-    {"key": "medium", "title": "Medium"},
-    {"key": "high", "title": "High"}
+    {"key": "low", "title": "Crawl"},
+    {"key": "medium", "title": "Walk"},
+    {"key": "high", "title": "Run"}
   ]
 }
