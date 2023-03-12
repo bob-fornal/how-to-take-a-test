@@ -8,10 +8,10 @@ import { AssistanceLevel } from '../../core/interfaces/assistance-level';
   styleUrls: ['./assistance-selection.component.scss']
 })
 export class AssistanceSelectionComponent {
-  levels: AssistanceLevel[] = config['assistance-levels']
-  selected: string = ''
+  levels: AssistanceLevel[] = config['assistance-levels'];
+  selected: string = '';
 
   handleSelectLevel= (level: string) : void => {
-    this.selected = level
+    this.selected = level;
   }
 }
