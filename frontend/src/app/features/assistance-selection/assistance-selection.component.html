@@ -1,7 +1,7 @@
 <div>
   <ng-container *ngFor="let level of levels">
     <button mat-raised-button color="primary"
-    class="assistance-level-button"
+      class="assistance-level-button"
      [id]="'id-' + level.key"
      [class.selected]="level.key === selected"
      (click)="selectGradeLevel(level.key)"
