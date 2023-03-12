@@ -1,11 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/@angular/material/theming';
+@import 'color-palettes';
+@import 'themes';
+@include mat-core();
+
 html{
   background: #111;
   color: #ccc;
 }
-
-@import '../node_modules/@angular/material/theming';
-@include mat-core();
 
 // Define primary color
 $primary: mat-palette($mat-indigo);
