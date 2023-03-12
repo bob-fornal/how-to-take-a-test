@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { HomeComponent } from './home.component';
-
+import { MockAssistanceSelectionComponent } from 'src/app/shared/_spec-tools/components/mock-assistance-selection-component.spec';
 import { MockGradeLevelSelectionComponent } from 'src/app/shared/_spec-tools/components/mock-grade-level-selection-component.spec';
 
 describe('HomeComponent', () => {
@@ -14,7 +14,7 @@ describe('HomeComponent', () => {
       imports: [HttpClientTestingModule],
       declarations: [
         HomeComponent,
-        
+        MockAssistanceSelectionComponent,
         MockGradeLevelSelectionComponent
       ]
     })
