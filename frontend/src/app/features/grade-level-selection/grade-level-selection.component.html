@@ -6,6 +6,9 @@
       color="primary"
       [id]="'id-' + level.key"
       [class.selected]="level.key === selected"
-      (click)="selectGradeLevel(level.key)">{{level.title}}</button>
+      (click)="selectGradeLevel(level.key)"
+    >
+      {{ level.title }}
+    </button>
   </ng-container>
 </div>

@@ -13,9 +13,9 @@
         "jasmine": true
       },
       "parserOptions": {
-        "project": ["frontend/tsconfig.json"],
+        "project": ["tsconfig.json"],
         "createDefaultProgram": true,
-        "ecmaVersion": 2020
+        "ecmaVersion": "latest"
       },
       "plugins": ["import"],
       "extends": [
@@ -88,7 +88,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "cah",
+            "prefix": "app",
             "style": "camelCase"
           }
         ],
@@ -96,7 +96,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "cah",
+            "prefix": "app",
             "style": "kebab-case"
           }
         ],

@@ -1,7 +1,7 @@
-let consoleDebug;
-let consoleLog;
+var consoleDebug;
+var consoleLog;
 
-beforeAll(() => {
+beforeAll(function() {
   consoleDebug = spyOn(console, 'debug');
   consoleDebug.and.stub();
 
@@ -9,7 +9,7 @@ beforeAll(() => {
   consoleLog.and.stub();
 });
 
-afterEach(() => {
+afterEach(function() {
   consoleDebug.calls.reset();
   consoleLog.calls.reset();
 });
