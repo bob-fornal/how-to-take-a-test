@@ -13,19 +13,18 @@
         "jasmine": true
       },
       "parserOptions": {
-        "project": ["tsconfig.json", "e2e/tsconfig.json"],
+        "project": ["frontend/tsconfig.json"],
         "createDefaultProgram": true,
         "ecmaVersion": 2020
       },
-      "plugins": ["import", "sonarjs"],
+      "plugins": ["import"],
       "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
-        "plugin:prettier/recommended",
-        "plugin:sonarjs/recommended"
+        "plugin:prettier/recommended"
       ],
       "rules": {
         // Errors
@@ -102,14 +101,12 @@
           }
         ],
         // Warnings
-        "sonarjs/prefer-single-boolean-return": "warn",
         "@typescript-eslint/no-explicit-any": "warn",
         "@angular-eslint/no-output-native": "warn",
         "@angular-eslint/no-input-rename": "warn",
         // Disabled Rules
         "no-unused-vars": "off",
         "no-prototype-builtins": "off",
-        "sonarjs/no-duplicate-string": "off",
         "@angular-eslint/no-output-on-prefix": "off",
         "@typescript-eslint/no-empty-function": "off",
         "@typescript-eslint/no-inferrable-types": "off",
