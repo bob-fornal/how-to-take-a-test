@@ -6,13 +6,13 @@ import { AssistanceLevel } from '../../core/interfaces/assistance-level';
 @Component({
   selector: 'assistance-selection',
   templateUrl: './assistance-selection.component.html',
-  styleUrls: ['./assistance-selection.component.scss']
+  styleUrls: ['./assistance-selection.component.scss'],
 })
 export class AssistanceSelectionComponent {
   levels: AssistanceLevel[] = config['assistance-levels'];
   selected: string = '';
 
-  selectGradeLevel= (key: string) : void => {
+  selectGradeLevel = (key: string) : void => {
     this.selected = key;
-  }
+  };
 }
