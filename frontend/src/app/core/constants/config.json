@@ -44,5 +44,10 @@
       "key": "adult",
       "title": "Adult"
     }
+  ],
+  "assistance-levels": [
+    {"key": "low", "title": "Crawl"},
+    {"key": "medium", "title": "Walk"},
+    {"key": "high", "title": "Run"}
   ]
 }
