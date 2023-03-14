@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'color-palettes';
+@import 'themes';
+@include mat-core();
+
+html{
+  background: #111;
+  color: #ccc;
+}
+
+@include angular-material-theme($httat-theme);

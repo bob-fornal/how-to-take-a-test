@@ -1,20 +1,20 @@
 $primary-color: #546E7A;
 
 $mat-palette-primary: (
-  50: lighten($primary-color, 45%),
-  100: lighten($primary-color, 40%),
-  200: lighten($primary-color, 30%),
-  300: lighten($primary-color, 20%),
-  400: lighten($primary-color, 10%),
-  500: $primary-color,
-  600: darken($primary-color, 10%),
-  700: darken($primary-color, 20%),
-  800: darken($primary-color, 30%),
-  900: darken($primary-color, 40%),
-  A100: lighten($primary-color, 15%),
-  A200: lighten($primary-color, 10%),
-  A400: lighten($primary-color, 5%),
-  A700: darken($primary-color, 5%),
+  50: #d3dce1,
+  100: #c4d0d6,
+  200: #a6b9c1,
+  300: #87a1ad,
+  400: #698998,
+  500: #546E7A,
+  600: #3f535c,
+  700: #2a383e,
+  800: #161c1f,
+  900: #010101,
+  A100: #7895a2,
+  A200: #698998,
+  A400: #5e7c89,
+  A700: #4a606b,
 );
 
 $mat-palette-accent: (
@@ -72,5 +72,5 @@ $mat-palette: (
   primary: $mat-palette-primary,
   secondary: $mat-palette-secondary,
   accent: $mat-palette-accent,
-  warn: $mat-palette-warn,
+  warn: $mat-palette-warning,
 );
