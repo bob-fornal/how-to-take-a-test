@@ -1,7 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AssistanceSelectionComponent } from 'src/app/features/assistance-selection/assistance-selection.component';
-import { GradeLevelSelectionComponent } from 'src/app/features/grade-level-selection/grade-level-selection.component';
+import { MockAssistanceSelectionComponent } from 'src/app/shared/_spec-tools/components/mock-assistance-selection-component.spec';
+import { MockGradeLevelSelectionComponent } from 'src/app/shared/_spec-tools/components/mock-grade-level-selection-component.spec';
 
 import { HomeComponent } from './home.component';
 
@@ -13,9 +13,10 @@ describe('HomeComponent', () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       declarations: [
-        AssistanceSelectionComponent,
-        GradeLevelSelectionComponent,
         HomeComponent,
+
+        MockAssistanceSelectionComponent,
+        MockGradeLevelSelectionComponent,
       ],
     }).compileComponents();
 
