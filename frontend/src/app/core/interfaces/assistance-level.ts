@@ -1,4 +1,4 @@
 export interface AssistanceLevel {
-    key: string,
-    title: string
+  key: string;
+  title: string;
 }

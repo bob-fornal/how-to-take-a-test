@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ApiHandlerService } from '../../core/services/api-handler.service';
 
 @Component({
-  selector: 'app-home',
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: 'home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   originalData: any = {};

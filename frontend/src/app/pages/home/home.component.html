@@ -4,9 +4,7 @@
 
 <div>List of Grades in data file:</div>
 <ul>
-  <li
-    *ngFor="let item of data"
-    class="item"
-    (click)="triggerDetails(item)">{{ item }}</li>
+  <li *ngFor="let item of data" class="item" (click)="triggerDetails(item)">
+    {{ item }}
+  </li>
 </ul>
-

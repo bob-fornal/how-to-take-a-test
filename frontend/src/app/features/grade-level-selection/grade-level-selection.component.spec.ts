@@ -8,9 +8,8 @@ describe('GradeLevelSelectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GradeLevelSelectionComponent ]
-    })
-    .compileComponents();
+      declarations: [GradeLevelSelectionComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(GradeLevelSelectionComponent);
     component = fixture.componentInstance;
