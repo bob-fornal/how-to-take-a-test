@@ -1,4 +1,8 @@
-# how-to-take-a-test
+# How To Take A Test
+
+## Test Genius
+
+**[HERE](http://www.test-genius.com)**
  
 ## Goals
 
