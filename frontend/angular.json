@@ -31,10 +31,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/color-palettes.scss",
-              "src/themes.scss",
-              "@angular/material/prebuilt-themes/purple-green.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },

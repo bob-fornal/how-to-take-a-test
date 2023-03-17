@@ -6,7 +6,7 @@ import { AssistanceLevel } from '../../core/interfaces/assistance-level';
 @Component({
   selector: 'assistance-selection',
   templateUrl: './assistance-selection.component.html',
-  styleUrls: ['./assistance-selection.component.scss'],
+  styleUrls: ['./assistance-selection.component.scss', '../../../../src/styles.scss'],
 })
 export class AssistanceSelectionComponent {
   levels: AssistanceLevel[] = config['assistance-levels'];
