@@ -1,8 +1,8 @@
-import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TestBed } from '@angular/core/testing';
+import { from, of } from 'rxjs';
 
 import { ApiHandlerService } from './api-handler.service';
-import { from, of } from 'rxjs';
 
 describe('ApiHandlerService', () => {
   let service: ApiHandlerService;
@@ -21,7 +21,7 @@ describe('ApiHandlerService', () => {
   it('expects "getUrl" to return the correct URL for github.io', () => {
     const key: string = 'TEST';
     service.endpoints['gh-pages'][key] = 'TEST-URL';
-    const _win: any = { location: { host: 'bob.github.io'} };
+    const _win: any = { location: { host: 'bob.github.io' } };
 
     const result: string = service.getUrl(key, _win);
     expect(result).toEqual('TEST-URL');
@@ -30,7 +30,7 @@ describe('ApiHandlerService', () => {
   it('expects "getUrl" to return the correct URL for localhost', () => {
     const key: string = 'TEST';
     service.endpoints['localhost'][key] = 'TEST-URL';
-    const _win: any = { location: { host: 'localhost'} };
+    const _win: any = { location: { host: 'localhost' } };
 
     const result: string = service.getUrl(key, _win);
     expect(result).toEqual('TEST-URL');
@@ -48,7 +48,9 @@ describe('ApiHandlerService', () => {
 
   it('expect "getTest" to handle error', async () => {
     spyOn(service, 'getUrl').and.returnValue('URL');
-    spyOn(service['http'], 'get').and.returnValue(from(Promise.reject('ERROR CODE')));
+    spyOn(service['http'], 'get').and.returnValue(
+      from(Promise.reject('ERROR CODE'))
+    );
 
     await service.getTest();
     expect(console.log).toHaveBeenCalledWith('ERROR CODE');

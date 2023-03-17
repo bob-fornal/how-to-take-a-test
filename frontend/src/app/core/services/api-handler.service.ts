@@ -6,22 +6,23 @@ import config from '../constants/config.json';
 import { Endpoints } from '../interfaces/endpoints';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiHandlerService {
   test: BehaviorSubject<any> = new BehaviorSubject<any>({});
 
   endpoints: Endpoints = config.endpoints;
 
-  constructor(private http: HttpClient) { }
-  
+  constructor(private http: HttpClient) {}
+
   getUrl = (key: string, _window: any): string => {
-    if (_window.location.host.includes('github.io')) return this.endpoints['gh-pages'][key];
+    if (_window.location.host.includes('github.io'))
+      return this.endpoints['gh-pages'][key];
     return this.endpoints['localhost'][key];
-  }
-  
+  };
+
   getTest = async (): Promise<void> => {
-    const key: string = "tests";
+    const key: string = 'tests';
     const url: string = this.getUrl(key, window);
 
     try {

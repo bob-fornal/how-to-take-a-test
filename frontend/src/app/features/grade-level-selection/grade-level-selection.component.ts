@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-
-import config from '../../core/constants/config.json';
 import { GradeDetail } from 'src/app/core/interfaces/grade-detail.interface';
 
+import config from '../../core/constants/config.json';
+
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'grade-level-selection',
   templateUrl: './grade-level-selection.component.html',
   styleUrls: ['./grade-level-selection.component.scss', '../../../../src/styles.scss']
