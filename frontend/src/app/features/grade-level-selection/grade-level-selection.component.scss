@@ -1,4 +1,4 @@
-@import '../../../../src/styles.scss';
+// @import '../../../../src/styles.scss';
 
 .level-wrapper {
   margin-bottom: 1em;
@@ -11,7 +11,7 @@
     margin-left: 0.25em;
   }
   &.selected {
-    background-color: $blue;
+    background-color: var(--override--selected); //$blue;
     border: 1px solid #f5f5f5;
     color: #f5f5f5;
   }  

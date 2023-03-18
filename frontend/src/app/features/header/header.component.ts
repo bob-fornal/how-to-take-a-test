@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss', '../../../../src/styles.scss']
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
 
