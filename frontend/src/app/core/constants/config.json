@@ -1,7 +1,10 @@
 {
   "endpoints": {
     "localhost": {
-      "tests": "/assets/mock/api/tests.json"
+      "PREFIX": "http://localhost:4001",
+      
+      "tests": "/api/tests",
+      "old-tests": "/assets/mock/api/tests.json"
     },
     "gh-pages": {
       "tests": "/how-to-take-a-test/assets/mock/api/tests.json"

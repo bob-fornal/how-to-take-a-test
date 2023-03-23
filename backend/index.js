@@ -1,4 +1,5 @@
 require('dotenv').config();
+const fs = require('fs').promises;
 const http = require('http');
 const express = require('express');
 const cors = require("cors");
@@ -7,20 +8,15 @@ const { API_PORT } = process.env;
 const port = process.env.PORT || API_PORT;
 
 const app = express();
-var corsOptions = {
-  origin: `http://localhost:${port}`
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const db = require('./model');
 const Role = db.role;
 
-db.sequelize.sync({force: true}).then(() => {
-  console.log('Drop and Resync Db');
-  initial();
+db.sequelize.sync().then(() => {
+  console.log('db connected');
 });
 
 app.get('/', (req, res) => {
@@ -33,8 +29,19 @@ app.post('/api/register', (req, res) => {
 });
 
 // Login
-app.post('/api/login', (req, res) => {
-  // our login logic goes here
+app.post('/api/login', async (req, res) => {
+  const { username, password } = req.body;
+  console.log(username, password);
+  
+  const user = await db.user.findOne({ where: { username: username }});
+  console.log('from DB', user);
+
+  res.status(200).send('');
+});
+
+app.get('/api/tests', async (req, res) => {
+  const data = await fs.readFile('./data/tests.json', 'utf8');
+  res.status(200).send(data);
 });
 
 const server = http.createServer(app);

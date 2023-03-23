@@ -18,7 +18,9 @@ export class ApiHandlerService {
   getUrl = (key: string, _window: any): string => {
     if (_window.location.host.includes('github.io'))
       return this.endpoints['gh-pages'][key];
-    return this.endpoints['localhost'][key];
+    return (
+      this.endpoints['localhost']['PREFIX'] + this.endpoints['localhost'][key]
+    );
   };
 
   getTest = async (): Promise<void> => {
