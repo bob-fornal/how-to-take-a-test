@@ -1,3 +1,10 @@
 <header></header>
+<grade-level-selection></grade-level-selection>
+<assistance-selection></assistance-selection>
 
-<p>home works!</p>
+<div>List of Grades in data file:</div>
+<ul>
+  <li *ngFor="let item of data" class="item" (click)="triggerDetails(item)">
+    {{ item }}
+  </li>
+</ul>

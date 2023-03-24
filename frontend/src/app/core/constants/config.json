@@ -1,8 +1,53 @@
 {
   "endpoints": {
-    "tests": "/assets/mock/api/tests.json"
+    "localhost": {
+      "tests": "/assets/mock/api/tests.json"
+    },
+    "gh-pages": {
+      "tests": "/how-to-take-a-test/assets/mock/api/tests.json"
+    }
   },
   "grade-levels": [
-    { "key": "3rd-grade", "title": "3rd Grade" }
+    {
+      "key": "3rd-grade",
+      "title": "3rd Grade"
+    },
+    {
+      "key": "4th-grade",
+      "title": "4th Grade"
+    },
+    {
+      "key": "5th-grade",
+      "title": "5th Grade"
+    },
+    {
+      "key": "6th-grade",
+      "title": "6th Grade"
+    },
+    {
+      "key": "7th-grade",
+      "title": "7th Grade"
+    },
+    {
+      "key": "8th-grade",
+      "title": "8th Grade"
+    },
+    {
+      "key": "high-school",
+      "title": "High School"
+    },
+    {
+      "key": "college",
+      "title": "College"
+    },
+    {
+      "key": "adult",
+      "title": "Adult"
+    }
+  ],
+  "assistance-levels": [
+    {"key": "low", "title": "Crawl"},
+    {"key": "medium", "title": "Walk"},
+    {"key": "high", "title": "Run"}
   ]
 }
