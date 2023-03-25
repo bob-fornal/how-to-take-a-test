@@ -1,1 +1,13 @@
-<p>header works!</p>
+<mat-toolbar class="override-toolbar">
+  <a class="logo-anchor" routerLink="/home">
+    <img
+      class="logo"
+      src="assets/images/logo.svg"
+      alt="Test Genius checkbox logo"
+    />
+  </a>
+  <span class="example-spacer"></span>
+  <span class="link-modal">Login</span>
+  <span class="vertical-pad">|</span>
+  <span class="link-modal" (click)="triggerRegister()">Register</span>
+</mat-toolbar>

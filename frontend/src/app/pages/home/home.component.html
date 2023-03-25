@@ -1,10 +1,13 @@
 <header></header>
-<grade-level-selection></grade-level-selection>
-<assistance-selection></assistance-selection>
 
-<div>List of Grades in data file:</div>
-<ul>
-  <li *ngFor="let item of data" class="item" (click)="triggerDetails(item)">
-    {{ item }}
-  </li>
-</ul>
+<div class="body-wrapper">
+  <grade-level-selection></grade-level-selection>
+  <assistance-selection></assistance-selection>
+
+  <div>List of Grades in data file:</div>
+  <ul>
+    <li *ngFor="let item of data" class="item" (click)="triggerDetails(item)">
+      {{ item }}
+    </li>
+  </ul>
+</div>

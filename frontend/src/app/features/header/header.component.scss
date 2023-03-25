@@ -1,0 +1,28 @@
+.override-toolbar {
+  background-color: #4b3fd5;
+  margin-bottom: 1em;
+}
+
+.logo-anchor {
+  height: 32px;
+
+  .logo {
+    height: 32px;
+  }
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.link-modal {
+  cursor: pointer;
+
+  &:hover {
+    color: palegreen;
+  }
+}
+.vertical-pad {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
