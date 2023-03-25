@@ -5,14 +5,16 @@
 @include mat.core();
 
 $httat-theme: (
+  color: (
     primary: map-get($mat-httat-palette-primary, 500),
     secondary: map-get($mat-httat-palette-secondary, 50),
     accent: map-get($mat-httat-palette-accent, 500),
     warn: map-get($mat-httat-palette-warn, 400)
+    )
 );
 
 @function httat-theme($key) {
-    @return map.get($httat-theme, $key);
+  @return map.get($httat-theme, $key);
 }
 
 // $mat-httat-palette-primary: mat.define-palette(mat.$green-palette);  
