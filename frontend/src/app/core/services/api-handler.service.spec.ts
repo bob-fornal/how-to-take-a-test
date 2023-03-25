@@ -29,11 +29,11 @@ describe('ApiHandlerService', () => {
 
   it('expects "getUrl" to return the correct URL for localhost', () => {
     const key: string = 'TEST';
-    service.endpoints['localhost'][key] = 'TEST-URL';
+    service.endpoints['localhost'][key] = '/TEST-URL';
     const _win: any = { location: { host: 'localhost' } };
 
     const result: string = service.getUrl(key, _win);
-    expect(result).toEqual('TEST-URL');
+    expect(result).toEqual('http://localhost:4001/TEST-URL');
   });
 
   it('expects "getTest" to get data', async () => {
