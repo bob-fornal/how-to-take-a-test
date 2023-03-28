@@ -3,6 +3,7 @@
     "localhost": {
       "PREFIX": "http://localhost:4001",
       
+      "registration": "/api/register",
       "tests": "/api/tests",
       "old-tests": "/assets/mock/api/tests.json"
     },

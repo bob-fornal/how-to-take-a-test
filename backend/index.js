@@ -25,16 +25,17 @@ app.get('/', (req, res) => {
 
 // Register
 app.post('/api/register', (req, res) => {
-  // our register logic goes here...
+  console.log('/api/register', req.body);
+  res.status(200).send(req.body);
 });
 
 // Login
 app.post('/api/login', async (req, res) => {
   const { username, password } = req.body;
-  console.log(username, password);
+  console.log('/api/login', username, password);
   
   const user = await db.user.findOne({ where: { username: username }});
-  console.log('from DB', user);
+  console.log('.api/login from DB', user);
 
   res.status(200).send('');
 });

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ApiHandlerService } from '../../core/services/api-handler.service';
+import { HomeApiService } from './home-api.service';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   originalData: any = {};
   data: Array<any> = [];
 
-  constructor(private api: ApiHandlerService) {
+  constructor(private api: HomeApiService) {
     api.test.subscribe(this.handler.bind(this));
   }
 
