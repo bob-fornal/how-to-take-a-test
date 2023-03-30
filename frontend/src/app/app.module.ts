@@ -14,6 +14,7 @@ import { AssistanceSelectionComponent } from './features/assistance-selection/as
 import { GradeLevelSelectionComponent } from './features/grade-level-selection/grade-level-selection.component';
 import { HeaderComponent } from './features/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
+import { LoginModalComponent } from './shared/login-modal/login-modal.component';
 import { RegisterModalComponent } from './shared/register-modal/register-modal.component';
 
 @NgModule({
@@ -24,6 +25,8 @@ import { RegisterModalComponent } from './shared/register-modal/register-modal.c
     GradeLevelSelectionComponent,
     HeaderComponent,
     HomeComponent,
+
+    LoginModalComponent,
     RegisterModalComponent,
   ],
   imports: [

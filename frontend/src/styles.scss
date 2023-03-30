@@ -5,5 +5,18 @@ html {
 
   body {
     margin: 0;
+
+    .error-message {
+      font-size: 0.8rem;
+      position: relative;
+      top: -1.5em;
+
+      &:not(.visible) {
+        color: transparent;
+      }
+      &.visible {
+        color: red;
+      }
+    }
   }
 }

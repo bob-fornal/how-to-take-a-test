@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Login</h1>
+<div mat-dialog-content>
+  <div class="form">
+    <mat-form-field class="full-width username">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="username" [(ngModel)]="username" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width username">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        placeholder="..."
+        [(ngModel)]="password"
+      />
+    </mat-form-field>
+    <div class="error-message" [class.visible]="loginError === true">
+      * Username or password are invalid.
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="basic" (click)="onCancel()">Cancel</button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onLogin()"
+    [disabled]="!validEntries()"
+  >
+    Login
+  </button>
+</div>

@@ -35,8 +35,16 @@ app.post('/api/login', async (req, res) => {
   console.log('/api/login', username, password);
   
   const user = await db.user.findOne({ where: { username: username }});
-  console.log('.api/login from DB', user);
+  console.log('/api/login from DB', user);
 
+  const loginSuccess = user.password === password;
+  console.log('/api/login ... password match?', loginSuccess);
+  res.status(200).send({ success: loginSuccess });
+});
+
+// Logout
+app.post('/api/logout', async (req, res) => {
+  console.log('/api/logout fired');
   res.status(200).send('');
 });
 

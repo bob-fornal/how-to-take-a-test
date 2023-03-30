@@ -35,7 +35,7 @@
         [(ngModel)]="password2"
       />
     </mat-form-field>
-    <div class="error message" *ngIf="!doPasswordsMatch()">
+    <div class="error-message" [class.visible]="!doPasswordsMatch()">
       * Passwords must match.
     </div>
   </div>
