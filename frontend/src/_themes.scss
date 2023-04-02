@@ -1,4 +1,4 @@
-@use "sass:map";
+// @use "sass:map";
 @use '@angular/material' as mat; //gives us base styles
 @import 'color-palettes';
 
@@ -6,24 +6,24 @@
 @include mat.core();
 
 // $mat-httat-palette-primary: mat.define-palette(mat.$green-palette);
-$mat-httat-palette-primary: map.get($mat-httat-palette-primary, 500);
-$mat-httat-palette-secondary: map.get($mat-httat-palette-secondary, 50);
-$mat-httat-palette-accent: map.get($mat-httat-palette-accent, 500);
-$mat-httat-palette-warn: map.get($mat-httat-palette-warn, 400);
+$mat-httat-palette-primary: mat.define-palette(mat.$mat-httat-palette-primary, 500);
+$mat-httat-palette-secondary: mat.define-palette(mat.$mat-httat-palette-secondary, 50);
+$mat-httat-palette-accent: mat.define-palette(mat.$mat-httat-palette-accent, 500);
+$mat-httat-palette-warn: mat.define-palette(mat.$mat-httat-palette-warn, 400);
 // $blue: blue;
 
-// $httat-theme: mat.define-httat-theme((
-//   color: (
-//     primary: $mat-httat-palette-primary,
-//     secondary: $mat-httat-palette-secondary,
-//     accent: $mat-httat-palette-accent,
-//     warn: $mat-httat-palette-warn,
-//   ),
-//   typography: mat.define-typography-config(),
-//   density: 0,
-// ));
+$httat-theme: mat.define-light-theme((
+  color: (
+    primary: $mat-httat-palette-primary,
+    secondary: $mat-httat-palette-secondary,
+    accent: $mat-httat-palette-accent,
+    warn: $mat-httat-palette-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
 
-// @include mat.all-component-themes($httat-theme);
+@include mat.all-component-themes($httat-theme);
 
 //removed from angular.json
 //"@angular/material/prebuilt-themes/purple-green.css"
