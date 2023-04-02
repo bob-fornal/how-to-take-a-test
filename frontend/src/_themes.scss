@@ -1,29 +1,46 @@
-// @use "sass:map";
 @use '@angular/material' as mat; //gives us base styles
+// @use "sass:map";
 @import 'color-palettes';
-
 
 @include mat.core();
 
-// $mat-httat-palette-primary: mat.define-palette(mat.$green-palette);
-$mat-httat-palette-primary: mat.define-palette(mat.$mat-httat-palette-primary, 500);
-$mat-httat-palette-secondary: mat.define-palette(mat.$mat-httat-palette-secondary, 50);
-$mat-httat-palette-accent: mat.define-palette(mat.$mat-httat-palette-accent, 500);
-$mat-httat-palette-warn: mat.define-palette(mat.$mat-httat-palette-warn, 400);
-// $blue: blue;
-
-$httat-theme: mat.define-light-theme((
+$httat-theme: (
   color: (
-    primary: $mat-httat-palette-primary,
-    secondary: $mat-httat-palette-secondary,
-    accent: $mat-httat-palette-accent,
-    warn: $mat-httat-palette-warn,
-  ),
-  typography: mat.define-typography-config(),
-  density: 0,
-));
+    primary: map-get($mat-httat-palette-primary, 500),
+    secondary: map-get($mat-httat-palette-secondary, 50),
+    accent: map-get($mat-httat-palette-accent, 500),
+    warn: map-get($mat-httat-palette-warn, 400)
+    )
+);
 
-@include mat.all-component-themes($httat-theme);
+@function httat-theme($key) {
+  @return map.get($httat-theme, $key);
+}
+
+// $mat-httat-palette-primary: mat.define-palette(mat.$green-palette);  
+
+// $mat-httat-palette-primary: map.get($mat-httat-palette-primary);  
+// $mat-httat-palette-secondary: map.get($mat-httat-palette-secondary);
+// $mat-httat-palette-accent: map.get($mat-httat-palette-accent);
+// $mat-httat-palette-warn: map.get($mat-httat-palette-warn);
+
+// $httat-primary: mat.define-palette($mat-httat-palette-primary);
+// $httat-secondary: mat.define-palette($mat-httat-palette-secondary);
+// $httat-accent: mat.define-palette($mat-httat-palette-accent);
+// $httat-warn: mat.define-palette($mat-httat-palette-warn);
+
+// $light-theme: mat.define-light-theme((
+//   color: (
+//     primary: $mat-httat-palette-primary,
+//     secondary: $mat-httat-palette-secondary,
+//     accent: $mat-httat-palette-accent,
+//     warn: $mat-httat-palette-warn,
+//   ),
+//   typography: mat.define-typography-config(),
+//   density: 0,
+// ));
+
+// @include mat.all-component-themes($light-theme);
 
 //removed from angular.json
 //"@angular/material/prebuilt-themes/purple-green.css"
