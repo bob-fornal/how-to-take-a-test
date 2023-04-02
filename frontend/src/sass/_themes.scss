@@ -5,7 +5,6 @@
 */
 
 @use '@angular/material' as mat;
-// @use 'sass:map';
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -170,27 +169,6 @@ $mat-primary: (
 );
 $theme-primary: mat.define-palette($mat-primary, main, lighter, darker);
 
-// body {
-//   --secondary-color: #607d8b;
-//   --secondary-lighter-color: #cfd8dc;
-//   --secondary-darker-color: #3a4b53;
-//   --text-secondary-color: #{$light-primary-text};
-//   --text-secondary-lighter-color: #{$dark-primary-text};
-//   --text-secondary-darker-color: #{$light-primary-text};
-// }   
-// $mat-secondary: (
-//   main: #607d8b,
-//   lighter: #cfd8dc,
-//   darker: #3a4b53,
-//   200: #b0bec5, // For slide toggle,
-//   contrast : (
-//     main: $light-primary-text,
-//     lighter: $dark-primary-text,
-//     darker: $light-primary-text,
-//   )
-// );
-// $theme-secondary: mat.define-palette($mat-secondary, main, lighter, darker);
-
 body {
   --accent-color: #00ff75;
   --accent-lighter-color: #b3ffd6;
@@ -246,31 +224,9 @@ $httat-theme: (
   density: 0,
 );
 
-// $theme: (
-//   color: (
-//     primary: $theme-primary,
-//     accent: $theme-accent,
-//     warn: $theme-warn,
-//     is-dark: false,
-//     foreground: $mat-light-theme-foreground,
-//     background: $mat-light-theme-background,
-//   )
-// );
-// $altTheme: (
-//   primary: $theme-primary,
-//   accent: $theme-accent,
-//   warn: $theme-warn,
-//   is-dark: true,
-//   foreground: $mat-dark-theme-foreground,
-//   background: $mat-dark-theme-background,
-// );
-
 // Theme Init
 @include mat.all-component-themes($httat-theme);
 
-// .theme-alternate {
-//   @include mat.all-component-themes($httat-theme);
-// }
 
 // Specific component overrides, pieces that are not in line with the general theming
 
