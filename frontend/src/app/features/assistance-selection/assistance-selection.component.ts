@@ -7,7 +7,7 @@ import { AssistanceLevel } from '../../core/interfaces/assistance-level';
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'assistance-selection',
   templateUrl: './assistance-selection.component.html',
-  styleUrls: ['./assistance-selection.component.scss', '../../../../src/styles.scss'],
+  styleUrls: ['./assistance-selection.component.scss'],
 })
 export class AssistanceSelectionComponent {
   levels: AssistanceLevel[] = config['assistance-levels'];
