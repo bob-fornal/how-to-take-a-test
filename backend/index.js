@@ -1,8 +1,10 @@
 require('dotenv').config();
+const cors = require("cors");
+const express = require('express');
 const fs = require('fs').promises;
 const http = require('http');
-const express = require('express');
-const cors = require("cors");
+const passport = require('passport');
+const session = require('express-session')
 
 const { API_PORT } = process.env;
 const port = process.env.PORT || API_PORT;
@@ -10,7 +12,15 @@ const port = process.env.PORT || API_PORT;
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(session({
+  secret: 'helloworld',
+  resave: true,
+  saveUninitialized: true,
+}))
 app.use(express.urlencoded({ extended: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+require('./middleware/auth');
 
 const db = require('./model');
 const Role = db.role;
@@ -24,8 +34,9 @@ app.get('/', (req, res) => {
 });
 
 // Register
-app.post('/api/register', (req, res) => {
+app.post('/api/register',passport.authenticate('local', { session: false }), (req, res) => {
   // our register logic goes here...
+  res.status(200).send('test')
 });
 
 // Login

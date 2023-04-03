@@ -1,7 +1,9 @@
+const keys = require('./keys')
+
 module.exports = {
   HOST: 'localhost',
   USER: 'root',
-  PASSWORD: 'Strong-54321!',
+  PASSWORD: keys.PASSWORD,
   DB: 'httat',
   dialect: 'mysql',
   pool: {
