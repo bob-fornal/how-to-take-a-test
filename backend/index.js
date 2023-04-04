@@ -6,6 +6,7 @@ const http = require('http');
 const passport = require('passport');
 const session = require('express-session')
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const { API_PORT } = process.env;
 const port = process.env.PORT || API_PORT;
@@ -43,14 +44,6 @@ app.post('/api/register', async (req, res) => {
     return res.status(400).send({ success: false, message: 'Username, email, and password are required.' })
   }
 
-
-  // Unsure if keeping this in
-  // if(typeof email !== 'string'){
-  //   return res.status(400).send({ success: false, message: 'Username must be a string' })
-  // }
-
-  // const cleanedEmail = email.toLowerCase().trim();
-
   // check if the email already exists
   const existingEmail = await db.user.findOne({ where: { email } });
   if (existingEmail) {
@@ -69,20 +62,25 @@ app.post('/api/register', async (req, res) => {
 
   // if neither email nor username exist, create a new user
   const newUser = await db.user.create({username, email, password: hashedPassword});
-  console.log(newUser)
+
   return res.status(200).send({ success: true });
 });
 
 // Login
 app.post('/api/login', passport.authenticate('local', { session: false }), async (req, res) => {
-  const { username, password } = req.body;
-  console.log(username, password);
-  
-  const user = await db.user.findOne({ where: { username: username }});
-  console.log('from DB', user);
 
-  res.status(200).send('');
+  const safeUserToSend = {id: req.user.id, username: req.user.username, email: req.user.email}
+
+  const token = jwt.sign(safeUserToSend, 'secretGoesHere', {
+    expiresIn: '1h',
+  });
+
+  res.status(200).send(token);
 });
+
+app.get('/api/test', passport.authenticate('jwt', { session: false }), (req, res) => {
+  return res.status(200).send('authenticated')
+})
 
 app.get('/api/tests', async (req, res) => {
   const data = await fs.readFile('./data/tests.json', 'utf8');
