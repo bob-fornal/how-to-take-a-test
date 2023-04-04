@@ -24,8 +24,6 @@ passport.use(new LocalStrategy(
 
     const matchingPassword = await bcrypt.compare(password, user.password)
 
-    console.log(matchingPassword)
-
     if(!matchingPassword) {
       return done(null, false, {message: 'Password did not match user'})
     }
@@ -41,16 +39,15 @@ passport.use(
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       secretOrKey: 'secretGoesHere',
     },
-    async(jwtPayload, cb) => {
-      // find the user in db if needed.
-      db.user.findOne({ where: { username: jwtPayload.username } })
-        .then((user) => {
-          if (!user) {
-            cb(null, false);
-          }
-          cb(null, user);
-        })
-        .catch((err) => cb(err, false));
+    async(jwtPayload, done) => {
+
+      const user = db.user.findOne({ where: { username: jwtPayload.username } })
+
+      if(!user){
+        return done(null, false, {message: 'No user found for JWT'})
+      }
+
+      return done(null, user, {message: "User authenticated successfully"})
     }
   )
 );
