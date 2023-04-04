@@ -18,7 +18,7 @@ app.use(session({
   secret: 'helloworld',
   resave: true,
   saveUninitialized: true,
-}))
+}));
 app.use(express.urlencoded({ extended: true }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -41,7 +41,7 @@ app.post('/api/register', async (req, res) => {
   const { username, email, password } = req.body;
 
   if(!email || !username || !password){
-    return res.status(400).send({ success: false, message: 'Username, email, and password are required.' })
+    return res.status(400).send({ success: false, message: 'Username, email, and password are required.' });
   }
 
   // check if the email already exists
@@ -69,7 +69,7 @@ app.post('/api/register', async (req, res) => {
 // Login
 app.post('/api/login', passport.authenticate('local', { session: false }), async (req, res) => {
 
-  const safeUserToSend = {id: req.user.id, username: req.user.username, email: req.user.email}
+  const safeUserToSend = {id: req.user.id, username: req.user.username, email: req.user.email};
 
   const token = jwt.sign(safeUserToSend, 'secretGoesHere', {
     expiresIn: '1h',
