@@ -5,6 +5,7 @@ const fs = require('fs').promises;
 const http = require('http');
 const passport = require('passport');
 const session = require('express-session')
+const bcrypt = require('bcrypt');
 
 const { API_PORT } = process.env;
 const port = process.env.PORT || API_PORT;
@@ -34,13 +35,46 @@ app.get('/', (req, res) => {
 });
 
 // Register
-app.post('/api/register',passport.authenticate('local', { session: false }), (req, res) => {
-  // our register logic goes here...
-  res.status(200).send('test')
+app.post('/api/register', async (req, res) => {
+
+  const { username, email, password } = req.body;
+
+  if(!email || !username || !password){
+    return res.status(400).send({ success: false, message: 'Username, email, and password are required.' })
+  }
+
+
+  // Unsure if keeping this in
+  // if(typeof email !== 'string'){
+  //   return res.status(400).send({ success: false, message: 'Username must be a string' })
+  // }
+
+  // const cleanedEmail = email.toLowerCase().trim();
+
+  // check if the email already exists
+  const existingEmail = await db.user.findOne({ where: { email } });
+  if (existingEmail) {
+    return res.status(400).send({success: false, message: 'Email already exists' });
+  }
+
+  // check if the username already exists
+  const existingUsername = await db.user.findOne({ where: { username } });
+  if (existingUsername) {
+    return res.status(400).send({success: false, message: 'Username already exists' });
+  }
+
+  // hash the password using bcrypt
+  const saltRounds = 10;
+  const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+  // if neither email nor username exist, create a new user
+  const newUser = await db.user.create({username, email, password: hashedPassword});
+  console.log(newUser)
+  return res.status(200).send({ success: true });
 });
 
 // Login
-app.post('/api/login', async (req, res) => {
+app.post('/api/login', passport.authenticate('local', { session: false }), async (req, res) => {
   const { username, password } = req.body;
   console.log(username, password);
   
