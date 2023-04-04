@@ -4,4 +4,4 @@ import { Component } from '@angular/core';
   selector: 'app-home',
   template: '<h1>title</h1>',
 })
-export class MockHomeComponent { }
+export class MockHomeComponent {}

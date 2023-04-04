@@ -1,58 +1,54 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Injectable } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { from, of } from 'rxjs';
 
 import { ApiHandlerService } from './api-handler.service';
 
+@Injectable()
+class TestService extends ApiHandlerService {
+  constructor() {
+    super();
+  }
+}
+
 describe('ApiHandlerService', () => {
-  let service: ApiHandlerService;
+  let service: TestService;
 
   beforeEach(() => {
+    service = new TestService();
+
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      providers: [TestService],
     });
-    service = TestBed.inject(ApiHandlerService);
+    service = TestBed.inject(TestService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
-  it('expects "getUrl" to return the correct URL for github.io', () => {
-    const key: string = 'TEST';
-    service.endpoints['gh-pages'][key] = 'TEST-URL';
-    const _win: any = { location: { host: 'bob.github.io' } };
+  it('expects "getUrl" to handle github.io hosting', () => {
+    const _window: any = {
+      location: {
+        host: 'http://github.io',
+      },
+    };
+    const key: string = 'TEST-KEY';
+    service.endpoints['gh-pages'][key] = '/ENDPOINT-VALUE';
 
-    const result: string = service.getUrl(key, _win);
-    expect(result).toEqual('TEST-URL');
+    const result: string = service.getUrl(key, _window);
+    expect(result).toEqual('/ENDPOINT-VALUE');
   });
 
-  it('expects "getUrl" to return the correct URL for localhost', () => {
-    const key: string = 'TEST';
-    service.endpoints['localhost'][key] = '/TEST-URL';
-    const _win: any = { location: { host: 'localhost' } };
+  it('expects "getUrl" to handle everything else', () => {
+    const _window: any = {
+      location: {
+        host: 'http://localhost',
+      },
+    };
+    const key: string = 'TEST-KEY';
+    service.endpoints['localhost'][key] = '/ENDPOINT-VALUE';
 
-    const result: string = service.getUrl(key, _win);
-    expect(result).toEqual('http://localhost:4001/TEST-URL');
-  });
-
-  it('expects "getTest" to get data', async () => {
-    const data: string = 'DATA';
-    spyOn(service, 'getUrl').and.returnValue('URL');
-    spyOn(service['http'], 'get').and.returnValue(of(data));
-    spyOn(service.test, 'next').and.stub();
-
-    await service.getTest();
-    expect(service.test.next).toHaveBeenCalledWith('DATA');
-  });
-
-  it('expect "getTest" to handle error', async () => {
-    spyOn(service, 'getUrl').and.returnValue('URL');
-    spyOn(service['http'], 'get').and.returnValue(
-      from(Promise.reject('ERROR CODE'))
-    );
-
-    await service.getTest();
-    expect(console.log).toHaveBeenCalledWith('ERROR CODE');
+    const result: string = service.getUrl(key, _window);
+    expect(result).toEqual('http://localhost:4001/ENDPOINT-VALUE');
   });
 });
