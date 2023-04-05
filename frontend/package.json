@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "build:deploy": "ng build --base-href /how-to-take-a-test/",
     "test": "ng test",
+    "test:coverage": "ng test --code-coverage",
     "lint": "ng lint"
   },
   "private": true,

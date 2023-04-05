@@ -21,19 +21,7 @@ export class HeaderComponent {
 
   triggerRegister = (): void => {
     const dialogRef = this.dialog.open(RegisterModalComponent);
-    dialogRef.afterClosed().subscribe(this.registerComplete.bind(this));
-  };
-
-  registerComplete = async (result: any): Promise<void> => {
-    if (result === undefined) return;
-    if (result.status === false) return;
-
-    await this.api.sendRegistration(
-      result.username,
-      result.password,
-      result.email
-    );
-    console.log('registration complete');
+    dialogRef.afterClosed().subscribe(this.handleRegister.bind(this));
   };
 
   triggerLogin = (): void => {
@@ -44,6 +32,18 @@ export class HeaderComponent {
   triggerLogout = async (): Promise<void> => {
     await this.api.sendLogout();
     this.loggedInUser = this.api.loggedInUser;
+  };
+
+  handleRegister = async (result: any): Promise<void> => {
+    if (result === undefined) return;
+    if (result.status === false) return;
+
+    await this.api.sendRegistration(
+      result.username,
+      result.password,
+      result.email
+    );
+    console.log('registration complete');
   };
 
   handleLoginComplete = async (result: any): Promise<void> => {

@@ -56,7 +56,7 @@ export class HeaderApiService extends ApiHandlerService {
 
     try {
       const data: any = { username, password, email };
-      const response: any = await firstValueFrom(this.http.post(url, data));
+      await firstValueFrom(this.http.post(url, data));
       console.log('/api/register returned');
     } catch (error) {
       console.log(error);

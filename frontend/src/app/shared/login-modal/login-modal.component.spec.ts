@@ -1,5 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderApiService } from 'src/app/features/header/header-api.service';
 
 import { mockMatDialogRef } from '../_spec-tools/components/mock-dialog-ref.spec';
@@ -13,7 +17,14 @@ describe('LoginModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MatDialogModule],
+      imports: [
+        BrowserAnimationsModule,
+        FormsModule,
+
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+      ],
       declarations: [LoginModalComponent],
       providers: [
         { provide: HeaderApiService, useValue: MockHeaderApiService },
