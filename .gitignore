@@ -5,6 +5,7 @@
 
 INTERNAL-NOTES.md
 HIDE-THIS.js
+.env
 
 # User-specific files
 *.rsuser
