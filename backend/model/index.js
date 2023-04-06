@@ -19,7 +19,7 @@ const sequelize = new Sequelize(
       acquire: config.pool.acquire,
       idle: config.pool.idle
     },
-    logging: true,
+    logging: (info) => console.log(info),
   }
 );
 
