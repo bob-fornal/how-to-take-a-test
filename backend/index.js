@@ -47,13 +47,13 @@ app.post('/api/register', async (req, res) => {
   // check if the email already exists
   const existingEmail = await db.user.findOne({ where: { email } });
   if (existingEmail) {
-    return res.status(400).send({success: false, message: 'Email already exists' });
+    return res.status(409).send({success: false, message: 'Email already exists' });
   }
 
   // check if the username already exists
   const existingUsername = await db.user.findOne({ where: { username } });
   if (existingUsername) {
-    return res.status(400).send({success: false, message: 'Username already exists' });
+    return res.status(409).send({success: false, message: 'Username already exists' });
   }
 
   // hash the password using bcrypt
@@ -61,7 +61,7 @@ app.post('/api/register', async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, saltRounds);
 
   // if neither email nor username exist, create a new user
-  const newUser = await db.user.create({username, email, password: hashedPassword});
+  await db.user.create({username, email, password: hashedPassword});
 
   return res.status(200).send({ success: true });
 });
@@ -75,10 +75,10 @@ app.post('/api/login', passport.authenticate('local', { session: false }), async
     expiresIn: '1h',
   });
 
-  res.status(200).send(token);
+  res.status(200).send({token, user: safeUserToSend});
 });
 
-app.get('/api/test', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/api/testAuth', passport.authenticate('jwt', { session: false }), (req, res) => {
   return res.status(200).send('authenticated')
 })
 
