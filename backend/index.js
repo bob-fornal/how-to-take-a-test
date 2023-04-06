@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({path:'../.env'});
 const cors = require("cors");
 const express = require('express');
 const fs = require('fs').promises;
@@ -27,7 +27,7 @@ require('./middleware/auth');
 const db = require('./model');
 const Role = db.role;
 
-db.sequelize.sync().then(() => {
+db.sequelize.sync().then(() => {  
   console.log('db connected');
 });
 
