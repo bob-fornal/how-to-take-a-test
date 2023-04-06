@@ -75,7 +75,7 @@ app.post('/api/login', passport.authenticate('local', { session: false }), async
     expiresIn: '1h',
   });
 
-  res.status(200).send({token, user: safeUserToSend});
+  res.status(200).send({ token, user: safeUserToSend, success: true });
 });
 
 app.get('/api/testAuth', passport.authenticate('jwt', { session: false }), (req, res) => {
