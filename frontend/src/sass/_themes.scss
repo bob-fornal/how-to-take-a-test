@@ -3,7 +3,6 @@
 * https://materialtheme.arcsine.dev
 * Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48IzU0NGFjMyIsIj9lcjwjY2NjOWVkIiwiO2VyPCMzYTMyYWV$LCIlPmBePCMwMGZmNzUiLCI~ZXI8I2IzZmZkNiIsIjtlcjwjMDBmZjU4fiwid2Fybj5gXjwjZjE1OTQ2IiwiP2VyPCNmYmNkYzgiLCI7ZXI8I2ViM2UyZn4sIj9UZXh0PCMwMDAwMDAiLCI~PTwjZmFmYWZhIiwiO1RleHQ8I2ZmZmZmZiIsIjs9PCMyYzJjMmN$LCJmb250cz5bYEA8KC00fixgQDwoLTN$LGBAPCgtMn4sYEA8KC0xfixgQDxoZWFkbGluZX4sYEA8dGl0bGV$LGBAPHN1YiktMn4sYEA8c3ViKS0xfixgQDxib2R5LTJ$LGBAPGJvZHktMX4sYEA8YnV0dG9ufixgQDxjYXB0aW9ufixgQDxpbnB1dCIsInNpemU$bnVsbH1dLCJpY29uczxGaWxsZWQiLCI~bmVzcz50cnVlLCJ2ZXJzaW9uPjEzfQ==
 */
-
 @use '@angular/material' as mat;
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -251,7 +250,9 @@ $httat-theme: (
   }
 }
 
-.test{
+// dark mode slider
+
+.dark-mode{
   background-color: map-get($mat-dark-theme-background, background);
   color: map-get($mat-dark-theme-foreground, text);
 }
@@ -282,28 +283,24 @@ $httat-theme: (
 
 .slider:before {
   position: absolute;
-  content: "🌕";
+  content: "";
   height: 26px;
   width: 26px;
   left: 50%; 
   bottom: 50%;
   left: 4px;
   bottom: 4px;
-  background-color: var(--text-accent-darker-color);
+  background-color: var(--primary-color);
   -webkit-transition: .4s;
   transition: .4s;
 }
 
-input:checked + .slider {
-  background-color: var(--accent-color);
-}
-
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px var(--primary-darker-color);
 }
 
 input:checked + .slider:before {
-  content: "☀️";
+  content: "";
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);

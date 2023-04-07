@@ -1,4 +1,3 @@
-import { OverlayContainer } from '@angular/cdk/overlay';
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 
@@ -9,16 +8,14 @@ import { Component, Inject } from '@angular/core';
 export class AppComponent {
   isDarkMode = false;
 
-  constructor(private overlayContainer: OverlayContainer) {}
+  constructor(@Inject(DOCUMENT) private document: Document) {}
 
   toggleDarkMode() {
     this.isDarkMode = !this.isDarkMode;
     if (this.isDarkMode) {
-      this.overlayContainer.getContainerElement().classList.add('test');
-      document.documentElement.classList.add('test');
+      this.document.documentElement.classList.add('dark-mode');
     } else {
-      this.overlayContainer.getContainerElement().classList.remove('test');
-      document.documentElement.classList.remove('test');
+      this.document.documentElement.classList.remove('dark-mode');
     }
   }
 }
