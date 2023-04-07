@@ -1,1 +1,10 @@
-<p>header works!</p>
+<div class="content-container">
+  <!-- Add any other elements you want to display alongside the toggle here -->
+  <div class="toggle-container">
+    <span class="mat-body">Dark mode</span>
+    <mat-slide-toggle
+      (change)="toggleDarkMode($event)"
+      [checked]="isDarkMode"
+    ></mat-slide-toggle>
+  </div>
+</div>
