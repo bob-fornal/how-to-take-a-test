@@ -17,22 +17,27 @@ passport.use(new LocalStrategy(
   async (username, password, done) => {
     console.log('Authenticating login');
 
+    if(!username || !password){
+      return done(null, false, {message: "Username and password are required to login"})
+    }
+
+
     try {
       const user = await db.user.findOne({ where: { username: username }});
 
       if(!user){
-        return done(null, false, {message: "No user found"});
+        return done(null, false, { message: "No user found" });
       }
   
       const matchingPassword = await bcrypt.compare(password, user.password);
   
       if(!matchingPassword) {
-        return done(null, false, {message: 'Password did not match user'});
+        return done(null, false, { message: 'Password did not match user' });
       }
   
       console.log('Login Successful. Logged in: ', user.username);
 
-      return done(null, user, {message: 'User logged in successfully'});
+      return done(null, user, { message: 'User logged in successfully' });
     } 
     catch (error) {
       return done(error);
@@ -52,10 +57,10 @@ passport.use(
         const user = db.user.findOne({ where: { username: jwtPayload.username } });
 
         if(!user){
-          return done(null, false, {message: 'No user found for JWT'});
+          return done(null, false, { message: 'No user found for JWT' });
         }
   
-        return done(null, user, {message: "User authenticated successfully"});
+        return done(null, user, { message: "User authenticated successfully" });
       } catch (error) {
         done(error);
       }

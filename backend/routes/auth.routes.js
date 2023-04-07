@@ -50,6 +50,11 @@ router.post('/login', passport.authenticate('local', { session: false }), async 
   res.status(200).send({ token, user: safeUserToSend, success: true });
 });
 
+// Login
+router.post('/logout', passport.authenticate('jwt', { session: false }), async (req, res) => {
+  res.status(200).send({ success: true });
+});
+
 router.get('/testAuth', passport.authenticate('jwt', { session: false }), (req, res) => {
   return res.status(200).send('authenticated');
 })
