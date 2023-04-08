@@ -13,9 +13,15 @@ export class HeaderComponent {
 
   constructor(@Inject(DOCUMENT) private document: Document) {
     const savedDarkMode = localStorage.getItem('isDarkMode');
+
     if (savedDarkMode) {
       this.isDarkMode = JSON.parse(savedDarkMode);
+    } else {
+      this.isDarkMode = window.matchMedia(
+        '(prefers-color-scheme: dark)'
+      ).matches;
     }
+
     this.applyDarkModeClass();
   }
 
