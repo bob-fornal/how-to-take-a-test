@@ -31,7 +31,7 @@ db.sequelize.sync().then(() => {
   console.log('db connected');
 });
 
-app.use('/api' , mainRouter);
+app.use('/api', mainRouter);
 
 const server = http.createServer(app);
 server.listen(port, () => {
