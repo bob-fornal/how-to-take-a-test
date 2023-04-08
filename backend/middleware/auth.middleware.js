@@ -18,9 +18,8 @@ passport.use(new LocalStrategy(
     console.log('Authenticating login');
 
     if(!username || !password){
-      return done(null, false, {message: "Username and password are required to login"})
+      return done(null, false, {message: "Username and password are required to login"});
     }
-
 
     try {
       const user = await db.user.findOne({ where: { username: username }});
@@ -38,10 +37,7 @@ passport.use(new LocalStrategy(
       console.log('Login Successful. Logged in: ', user.username);
 
       return done(null, user, { message: 'User logged in successfully' });
-    } 
-    catch (error) {
-      return done(error);
-    }
+    } catch (error) { return done(error);}
   }
 ));
 

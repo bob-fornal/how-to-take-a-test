@@ -1,12 +1,12 @@
 const bcrypt = require('bcrypt');
 const express = require('express');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 const passport = require('passport');
 
 const db = require('../model');
 
 const router = express.Router();
-
+    
 // Register
 router.post('/register', async (req, res) => {
 
@@ -19,13 +19,13 @@ router.post('/register', async (req, res) => {
   // check if the email already exists
   const existingEmail = await db.user.findOne({ where: { email } });
   if (existingEmail) {
-    return res.status(409).send({success: false, message: 'Email already exists' });
+    return res.status(409).send({success: false, message: 'Invalid email' });
   }
 
   // check if the username already exists
   const existingUsername = await db.user.findOne({ where: { username } });
   if (existingUsername) {
-    return res.status(409).send({success: false, message: 'Username already exists' });
+    return res.status(409).send({success: false, message: 'Invalid username' });
   }
 
   // hash the password using bcrypt
@@ -50,7 +50,7 @@ router.post('/login', passport.authenticate('local', { session: false }), async 
   res.status(200).send({ token, user: safeUserToSend, success: true });
 });
 
-// Login
+// Logout
 router.post('/logout', passport.authenticate('jwt', { session: false }), async (req, res) => {
   res.status(200).send({ success: true });
 });

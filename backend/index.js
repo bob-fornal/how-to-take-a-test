@@ -4,7 +4,7 @@ const express = require('express');
 const fs = require('fs').promises;
 const http = require('http');
 const passport = require('passport');
-const session = require('express-session')
+const session = require('express-session');
 
 const { API_PORT } = process.env;
 const port = process.env.PORT || API_PORT;
@@ -25,13 +25,13 @@ require('./middleware/auth.middleware');
 const db = require('./model');
 const Role = db.role;
 
-const mainRouter = require('./routes/index.routes')
+const mainRouter = require('./routes/index.routes');
 
 db.sequelize.sync().then(() => {  
   console.log('db connected');
 });
 
-app.use('/api' ,mainRouter)
+app.use('/api' , mainRouter);
 
 const server = http.createServer(app);
 server.listen(port, () => {
