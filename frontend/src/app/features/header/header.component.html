@@ -1,10 +1,15 @@
 <div class="content-container">
   <!-- Add any other elements you want to display alongside the toggle here -->
   <div class="toggle-container">
-    <span class="mat-body">Dark mode</span>
-    <mat-slide-toggle
-      (change)="toggleDarkMode($event)"
-      [checked]="isDarkMode"
-    ></mat-slide-toggle>
+    <mat-slide-toggle (change)="toggleDarkMode($event)" [checked]="isDarkMode">
+      <span
+        [ngClass]="{
+          'dark-text': !isDarkMode,
+          'light-text': isDarkMode
+        }"
+      >
+        {{ isDarkMode ? "Dark Mode" : "Light Mode" }}
+      </span></mat-slide-toggle
+    >
   </div>
 </div>

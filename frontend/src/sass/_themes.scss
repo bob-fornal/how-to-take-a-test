@@ -272,4 +272,12 @@ $httat-theme: (
 
 .toggle-container {
   margin-left: auto;
+  margin-right: 0.5em;
+}
+.light-text {
+  color: $light-text;
+}
+
+.dark-text {
+  color: $dark-text;
 }
