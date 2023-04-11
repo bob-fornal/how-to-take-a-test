@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderApiService } from 'src/app/features/header/header-api.service';
 
@@ -19,7 +20,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MatDialogModule, MatToolbarModule],
+      imports: [MatDialogModule, MatSlideToggleModule, MatToolbarModule],
       declarations: [HeaderComponent],
       providers: [
         { provide: HeaderApiService, useClass: MockHeaderApiService },
@@ -47,6 +48,35 @@ describe('HeaderComponent', () => {
 
     const result: boolean = component.isLoggedIn();
     expect(result).toEqual(false);
+  });
+
+  it('expects "initDarkMode" to set to stored value', () => {
+    spyOn(window.localStorage, 'getItem').and.returnValue('true');
+    spyOn(component, 'applyDarkModeClass').and.stub();
+    component.isDarkMode = false;
+
+    component.initDarkMode();
+    expect(component.isDarkMode).toEqual(true);
+    expect(component.applyDarkModeClass).toHaveBeenCalled();
+  });
+
+  it('expects "initDarkMode" to use preferred', () => {
+    spyOn(window.localStorage, 'getItem').and.returnValue(null);
+    window.matchMedia =
+      window.matchMedia ||
+      function () {
+        return {
+          matches: false,
+          addListener: function () {},
+          removeListener: function () {},
+        };
+      };
+    spyOn(component, 'applyDarkModeClass').and.stub();
+    component.isDarkMode = false;
+
+    component.initDarkMode();
+    expect(component.isDarkMode).toEqual(false);
+    expect(component.applyDarkModeClass).toHaveBeenCalled();
   });
 
   it('expects "triggerRegister" to open a dialog', () => {
@@ -129,5 +159,40 @@ describe('HeaderComponent', () => {
 
     await component.handleLoginComplete(result);
     expect(component.loggedInUser).toEqual({});
+  });
+
+  it('expects "toggleDarkMode" to set, store, and apply the mode', () => {
+    const event: any = { checked: true };
+    spyOn(window.localStorage, 'setItem').and.stub();
+    spyOn(component, 'applyDarkModeClass').and.stub();
+    component.isDarkMode = false;
+
+    component.toggleDarkMode(event);
+    expect(component.isDarkMode).toEqual(true);
+    expect(window.localStorage.setItem).toHaveBeenCalledWith(
+      'isDarkMode',
+      'true'
+    );
+    expect(component.applyDarkModeClass).toHaveBeenCalled();
+  });
+
+  it('expects "applyDarkModeClass" to handle dark mode true', () => {
+    component.isDarkMode = true;
+    spyOn(component['document'].documentElement.classList, 'add').and.stub();
+
+    component.applyDarkModeClass();
+    expect(
+      component['document'].documentElement.classList.add
+    ).toHaveBeenCalledWith('dark-mode');
+  });
+
+  it('expects "applyDarkModeClass" to handle dark mode false', () => {
+    component.isDarkMode = false;
+    spyOn(component['document'].documentElement.classList, 'remove').and.stub();
+
+    component.applyDarkModeClass();
+    expect(
+      component['document'].documentElement.classList.remove
+    ).toHaveBeenCalledWith('dark-mode');
   });
 });

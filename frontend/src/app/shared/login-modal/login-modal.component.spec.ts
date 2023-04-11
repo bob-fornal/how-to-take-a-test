@@ -27,7 +27,7 @@ describe('LoginModalComponent', () => {
       ],
       declarations: [LoginModalComponent],
       providers: [
-        { provide: HeaderApiService, useValue: MockHeaderApiService },
+        { provide: HeaderApiService, useClass: MockHeaderApiService },
         { provide: MatDialogRef, useValue: mockMatDialogRef },
       ],
     }).compileComponents();
@@ -39,5 +39,54 @@ describe('LoginModalComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('expects "validEntries" to return false if username is empty', () => {
+    component.username = '';
+    component.password = '';
+
+    const result: boolean = component.validEntries();
+    expect(result).toEqual(false);
+  });
+
+  it('expects "validEntries" to return false if password is empty', () => {
+    component.username = 'BOB';
+    component.password = '';
+
+    const result: boolean = component.validEntries();
+    expect(result).toEqual(false);
+  });
+
+  it('expects "validEntries" to return true if username and password have value', () => {
+    component.username = 'BOB';
+    component.password = 'BOB';
+
+    const result: boolean = component.validEntries();
+    expect(result).toEqual(true);
+  });
+
+  it('expects "onLogin" to send the username and password, set loginError, and close', async () => {
+    component.username = 'BOB1';
+    component.password = 'BOB2';
+    spyOn(component['api'], 'sendLogin').and.returnValue(Promise.resolve(true));
+    spyOn(component, 'close').and.stub();
+
+    await component.onLogin();
+    expect(component.loginError).toEqual(true);
+    expect(component.close).toHaveBeenCalled();
+  });
+
+  it('expects "close" to trigger dialog ref close, state true', () => {
+    spyOn(component['dialogRef'], 'close').and.stub();
+
+    component.close();
+    expect(component['dialogRef'].close).toHaveBeenCalledWith({ state: true });
+  });
+
+  it('expects "onCancel" to trigger dialog ref close, state false', () => {
+    spyOn(component['dialogRef'], 'close').and.stub();
+
+    component.onCancel();
+    expect(component['dialogRef'].close).toHaveBeenCalledWith({ state: false });
   });
 });

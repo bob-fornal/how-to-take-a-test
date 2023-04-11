@@ -1,7 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { User } from 'src/app/core/interfaces/user';
 import { LoginModalComponent } from 'src/app/shared/login-modal/login-modal.component';
 import { RegisterModalComponent } from 'src/app/shared/register-modal/register-modal.component';
@@ -77,13 +76,13 @@ export class HeaderComponent {
     console.log('login complete');
   };
 
-  toggleDarkMode = (event: MatSlideToggleChange): void => {
+  toggleDarkMode = (event: any): void => {
     this.isDarkMode = event.checked;
     localStorage.setItem('isDarkMode', JSON.stringify(this.isDarkMode));
     this.applyDarkModeClass();
   };
 
-  private applyDarkModeClass() {
+  applyDarkModeClass() {
     if (this.isDarkMode) {
       this.document.documentElement.classList.add('dark-mode');
     } else {
