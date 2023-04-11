@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node --watch index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -23,5 +23,8 @@
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
     "sequelize": "^6.29.3"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }

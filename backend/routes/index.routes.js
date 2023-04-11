@@ -5,15 +5,11 @@ const authRouter = require('./auth.routes');
 
 const router = express.Router();
 
+const { root, tests } = require('./index.functionality');
+
 router.use('/auth', authRouter);
 
-router.get('/', (req, res) => {
-  res.status(401).send('Unauthorized');
-});
-
-router.get('/tests', async (req, res) => {
-  const data = await fs.readFile('./data/tests.json', 'utf8');
-  res.status(200).send(data);
-});
+router.get('/', root);
+router.get('/tests', tests);
 
 module.exports = router;
