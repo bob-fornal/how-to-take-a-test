@@ -20,3 +20,9 @@ html {
     }
   }
 }
+@use 'themes' as *;
+
+:root {
+  --override--selected-bg-color: green; 
+}
+

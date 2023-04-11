@@ -7,6 +7,18 @@
     />
   </a>
   <span class="example-spacer"></span>
+  <div class="toggle-container">
+    <mat-slide-toggle (change)="toggleDarkMode($event)" [checked]="isDarkMode">
+      <span
+        [ngClass]="{
+          'dark-text': !isDarkMode,
+          'light-text': isDarkMode
+        }"
+      >
+        {{ isDarkMode ? "Dark Mode" : "Light Mode" }}
+      </span></mat-slide-toggle
+    >
+  </div>
   <span class="link-modal" *ngIf="!isLoggedIn()" (click)="triggerLogin()"
     >Login</span
   >
