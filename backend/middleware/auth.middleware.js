@@ -38,8 +38,8 @@ passport.use(new LocalStrategy(
 
       return done(null, user, { message: 'User logged in successfully' });
     } catch (error) {
-        return done(error);
-      }
+      return done(error);
+    }
   }
 ));
 
