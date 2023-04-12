@@ -28,4 +28,31 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('expects "init" to trigger getTest', () => {
+    spyOn(component['api'], 'getTest').and.stub();
+
+    component.init();
+    expect(component['api'].getTest).toHaveBeenCalled();
+  });
+
+  it('expects "handler" to store the data and keys', () => {
+    const data: any = {
+      KEY1: 'data1',
+      KEY2: 'data2',
+    };
+
+    component.handler(data);
+    expect(component.originalData).toEqual(data);
+    expect(component.data).toEqual(['KEY1', 'KEY2']);
+  });
+
+  it('expects "triggerDetails" to console.log a key', () => {
+    component.originalData = {
+      KEY: [0, 1, 2],
+    };
+
+    component.triggerDetails('KEY');
+    expect(console.log).toHaveBeenCalledWith(0);
+  });
 });

@@ -1,0 +1,54 @@
+<h1 mat-dialog-title>Registration</h1>
+<div mat-dialog-content>
+  <div class="form">
+    <mat-form-field class="full-width username">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="username" [(ngModel)]="username" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width email">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        placeholder="user@somewhere.com"
+        [(ngModel)]="email"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="full-width username">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        placeholder="..."
+        [(ngModel)]="password1"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="full-width username">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        placeholder="..."
+        [(ngModel)]="password2"
+      />
+    </mat-form-field>
+    <div class="error-message" [class.visible]="!doPasswordsMatch()">
+      * Passwords must match.
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="basic" (click)="onCancel()">Cancel</button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onClose()"
+    cdkFocusInitial
+    [disabled]="!doPasswordsMatch()"
+  >
+    Submit
+  </button>
+</div>

@@ -1,15 +1,40 @@
-<div class="content-container">
-  <!-- Add any other elements you want to display alongside the toggle here -->
-  <div class="toggle-container">
-    <mat-slide-toggle (change)="toggleDarkMode($event)" [checked]="isDarkMode">
-      <span
-        [ngClass]="{
-          'dark-text': !isDarkMode,
-          'light-text': isDarkMode
-        }"
-      >
-        {{ isDarkMode ? "Dark Mode" : "Light Mode" }}
-      </span></mat-slide-toggle
-    >
-  </div>
-</div>
+<mat-toolbar class="override-toolbar">
+  <a class="logo-anchor" routerLink="/home">
+    <img
+      class="logo"
+      src="assets/images/logo.svg"
+      alt="Test Genius checkbox logo"
+    />
+  </a>
+
+  <span class="example-spacer"></span>
+
+  <mat-slide-toggle
+    class="position-fix"
+    (change)="toggleDarkMode($event)"
+    [checked]="isDarkMode"
+  >
+    <span class="light-text">
+      {{ isDarkMode ? "Dark Mode" : "Light Mode" }}
+    </span></mat-slide-toggle
+  >
+
+  <span class="vertical-pad">|</span>
+
+  <span
+    class="link-modal light-text"
+    *ngIf="!isLoggedIn()"
+    (click)="triggerLogin()"
+    >Login</span
+  >
+  <span
+    class="link-modal light-text"
+    *ngIf="isLoggedIn()"
+    (click)="triggerLogout()"
+    >Logout</span
+  >
+  <span class="vertical-pad">|</span>
+  <span class="link-modal light-text" (click)="triggerRegister()"
+    >Register</span
+  >
+</mat-toolbar>

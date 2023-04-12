@@ -1,5 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
 @use 'themes' as *;
+
+body {
+  margin: 0;
+
+  .error-message {
+    font-size: 0.8rem;
+    position: relative;
+    top: -1.5em;
+
+    &:not(.visible) {
+      color: transparent;
+    }
+    &.visible {
+      color: red;
+    }
+  }
+}
 
 :root {
   --override--selected-bg-color: green; 
