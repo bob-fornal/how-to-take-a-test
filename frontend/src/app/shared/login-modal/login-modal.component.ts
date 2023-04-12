@@ -27,7 +27,7 @@ export class LoginModalComponent {
       this.username,
       this.password
     );
-    this.loginError = success;
+    this.loginError = !success;
     this.close();
   };
 

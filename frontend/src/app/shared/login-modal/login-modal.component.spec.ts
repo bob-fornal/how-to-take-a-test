@@ -72,7 +72,7 @@ describe('LoginModalComponent', () => {
     spyOn(component, 'close').and.stub();
 
     await component.onLogin();
-    expect(component.loginError).toEqual(true);
+    expect(component.loginError).toEqual(false);
     expect(component.close).toHaveBeenCalled();
   });
 
