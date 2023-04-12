@@ -31,7 +31,7 @@
     class="link-modal light-text"
     *ngIf="isLoggedIn()"
     (click)="triggerLogout()"
-    >Logout</span
+    >Logout ({{ loggedInUser.username }})</span
   >
   <span class="vertical-pad">|</span>
   <span class="link-modal light-text" (click)="triggerRegister()"

@@ -1,7 +1,7 @@
-module.exports = {
-  HOST: process.env.HOST,
-  USER: process.env.USER,
-  PASSWORD: process.env.PASSWORD,
+const config = {
+  HOST: process.env.DB_HOST,
+  USER: process.env.DB_USERNAME,
+  PASSWORD: process.env.DB_PASSWORD,
   DB: process.env.DATABASE,
   dialect: 'mysql',
   pool: {
@@ -11,3 +11,4 @@ module.exports = {
     idle: 10000
   }
 };
+module.exports = {...config};

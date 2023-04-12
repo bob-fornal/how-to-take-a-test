@@ -23,12 +23,11 @@ export class LoginModalComponent {
   };
 
   onLogin = async () => {
-    const success: boolean = await this.api.sendLogin(
-      this.username,
-      this.password
-    );
+    const success: any = await this.api.sendLogin(this.username, this.password);
     this.loginError = !success;
-    this.close();
+    if (success === true) {
+      this.close();
+    }
   };
 
   close = () => {
