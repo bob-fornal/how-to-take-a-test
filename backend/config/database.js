@@ -1,8 +1,8 @@
 module.exports = {
-  HOST: 'localhost',
-  USER: 'root',
-  PASSWORD: 'Strong-54321!',
-  DB: 'httat',
+  HOST: process.env.HOST,
+  USER: process.env.USER,
+  PASSWORD: process.env.PASSWORD,
+  DB: process.env.DATABASE,
   dialect: 'mysql',
   pool: {
     max: 5,
